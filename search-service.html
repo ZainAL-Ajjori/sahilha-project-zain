@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سهّلها - اكتشف الخدمات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #f9f9f9; }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header-title {
+            color: #2C3E50;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .search-wrapper {
+            margin-bottom: 50px;
+        }
+
+        #search-bar {
+            width: 70%;
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: 2px solid #2ECC71;
+            font-family: 'Cairo';
+            font-size: 1.1rem;
+            outline: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            gap: 30px; 
+        }
+
+        .service-item {
+            width: 140px;  
+            height: 140px;
+            border-radius: 50%;
+            border: 2px solid #2ECC71;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .service-item i {
+            font-size: 2.2rem;
+            color: #2ECC71;
+            margin-bottom: 10px;
+        }
+
+        .service-item span {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .service-item:hover {
+            transform: scale(1.1); /* تكبير عند التمرير */
+            background-color: #2ECC71;
+            color: white;
+        }
+
+        .service-item:hover i {
+            color: white;
+        }
+
+        @media (min-width: 900px) {
+            .service-item:nth-child(6) {
+                margin-left: 0; 
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">سهّلها</a>
+        <ul class="nav-links">
+            <li><a href="search-service.html">الرئيسية</a></li>
+            <li><a href="about.html">عن الموقع</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+            <li><a href="dashboard.php" class="dashboard-link"><i class="fas fa-tasks"></i> الرسائل</a></li>
+            <li class="auth-links"> 
+                 <a href="login.php">تسجيل الدخول</a>    |
+                 <a href="logout.php" style="color: #e74c3c;">الخروج</a>
+            </li>
+
+    </div>
+    </nav>
+    <div class="container">
+        <h2 class="header-title">اكتشف أفضل الخدمات في منطقتك</h2>
+        
+        <div class="search-wrapper">
+            <input type="text" id="search-bar" placeholder="ابحث عن خدمة (مثلاً: مطاعم، طبيب)...">
+        </div>
+
+        <div class="service-list">
+            <div class="service-item" onclick="location.href='category.php?type=transport'">
+                <i class="fas fa-car"></i><span>النقل والمواصلات</span>
+            </div>
+            <div class="service-item" onclick="location.href='category.php?type=private_clinic'">
+                <i class="fas fa-user-md"></i><span>عيادة خاصة</span>
+            </div>
+            <div class="service-item" onclick="location.href='category.php?type=wholesale'">
+                <i class="fas fa-boxes-stacked"></i><span>بيع بالجملة</span>
+            </div>
+            <div class="service-item" onclick="location.href='category.php?type=dentist'">
+                <i class="fas fa-tooth"></i><span>عيادة أسنان</span>
+            </div>
+            <div class="service-item" onclick="location.href='category.php?type=library'">
+                <i class="fas fa-book"></i><span>مكتبة</span>
+            </div>
+            <div class="service-item" onclick="location.href='category.php?type=obgyn'">
+                <i class="fas fa-baby"></i><span>نساء وتوليد</span>
+            </div>
+            <div class="service-item" onclick="location.href='category.php?type=restaurants'">
+                <i class="fas fa-utensils"></i><span>مطاعم</span>
+            </div>
+            <div class="service-item" onclick="location.href='category.php?type=workspace'">
+                <i class="fas fa-laptop-code"></i><span>مساحات عمل</span>
+            </div>
+            <div class="service-item" onclick="location.href='category.php?type=photography'">
+                <i class="fas fa-camera"></i><span>تصوير</span>
+            </div>
+        </div>
+        <p style="margin-top: 40px; color: #95a5a6; font-size: 0.9rem; letter-spacing: 1px; font-family: 'Cairo';">
+         خدمات موثوقة بلمسة زر واحدة
+        </p>
+    </div>
+    <script src="script.js"></script>
+<footer>
+    <div class="footer-content">
+        <h3>سهّلها</h3>
+        <p>دليلك الأول للوصول للخدمات في غزة.. من قلب الصعاب نبتكر الحلول.</p>
+        <ul class="footer-links">
+            <li><a href="search-service.html">الرئيسية</a></li>
+            <li><a href="about.html">عن الموقع</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; 2026 منصة سهّلها - صُنع بكل فخر في غزة 🇵🇸
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>انضم إلينا - سهّلها</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      :root {
+        --primary-color: #2ecc71;
+        --dark-color: #2c3e50;
+      }
+
+      body {
+        background: #f4f7f6;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .container {
+        max-width: 800px;
+        padding: 20px;
+      }
+
+      .about-content {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border-top: 10px solid var(--primary-color);
+      }
+
+      /* تنسيق العناوين */
+      h2 {
+        margin-bottom: 10px;
+      }
+      p {
+        margin-bottom: 30px;
+      }
+
+      /* تنسيق حقول الإدخال */
+      .form-group,
+      .input-group {
+        margin-bottom: 25px;
+        text-align: right;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: var(--dark-color);
+        font-size: 1.05rem;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 15px; 
+        border: 2px solid #eee;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        font-family: inherit;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
+      }
+
+
+      .btn-primary {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 18px;
+        width: 100%;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+      }
+
+      .btn-primary:hover {
+        background: #27ae60;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+      }
+
+      /* تحذير */
+      .warning-box {
+        background: #fff5f5;
+        border-right: 5px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+      }
+    </style>
+  </head>
+  <body class="add-service-page">
+    <div class="container">
+      <div class="about-content">
+        <h2>
+          كُن جزءاً من التغيير..
+          <span style="color: #2ecc71">سهّل حياة غيرك بخدمتك!</span>
+        </h2>
+        <p style="color: #7f8c8d">
+          أضف تفاصيل خدمتك الآن لتصل لكل محتاج في غزة.
+        </p>
+
+        <hr
+          style="border: 0; border-top: 1px solid #eee; margin-bottom: 30px"
+        />
+
+        <form action="save-service.php" method="POST" class="add-service-form">
+          <div class="form-group">
+            <label>الاسم الكامل:</label>
+            <input
+              type="text"
+              name="full_name"
+              placeholder="مثلا محمد صبري"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>نوع الخدمة:</label>
+            <select name="service_type" required>
+              <option value="">-- اختر القسم المناسب --</option>
+              <option value="transport">النقل والمواصلات</option>
+              <option value="private_clinic">عيادة خاصة</option>
+              <option value="wholesale">بيع بالجملة</option>
+              <option value="dentist">عيادة أسنان</option>
+              <option value="library">مكتبة</option>
+              <option value="obgyn">نساء وتوليد</option>
+              <option value="restaurants">مطاعم</option>
+              <option value="workspace">مساحات عمل</option>
+              <option value="photography">تصوير</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>المنطقة:</label>
+            <select name="location" required>
+              <option value="">-- اختر المنطقة --</option>
+              <option value="gaza">مدينة غزة</option>
+              <option value="khanyounis">خانيونس</option>
+              <option value="deir_balah">دير البلح</option>
+              <option value="nusirat">النصيرات</option>
+              <option value="bureij">البريج</option>
+              <option value="maghazi">المغازي</option>
+              <option value="zawaida">الزوايدة</option>
+              <option value="jabalia">جباليا</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>السعر التقريبي للخدمة:</label>
+            <input
+              type="text"
+              name="price"
+              placeholder="مثلاً: 50 شيكل أو حسب الحالة"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>أيام وساعات العمل:</label>
+            <input
+              type="text"
+              name="work_days"
+              placeholder="مثلاً: يومياً من 8 صباحاً حتى 4 مساءً"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>نبذة عن الخدمة أو ملاحظات إضافية:</label>
+            <textarea
+              name="notes"
+              rows="4"
+              placeholder="اكتب هنا أي تفاصيل إضافية تهم المستخدم..."
+            ></textarea>
+          </div>
+
+          <div class="warning-box">
+            <label style="color: #e74c3c; margin-bottom: 5px"
+              >ملاحظة مهمة:</label
+            >
+            <p style="color: #666; font-size: 0.95rem; margin: 0">
+              يرجى التأكد من صحة المعلومات المدخلة، اسم المستخدم وكلمة السر
+              ضروريان للدخول إلى لوحة التحكم الخاصة بك.
+            </p>
+          </div>
+
+          <div class="input-group">
+            <label>اسم المستخدم:</label>
+            <input
+              type="text"
+              name="username"
+              required
+              placeholder="اختر اسم مستخدم فريد لخدمتك"
+            />
+          </div>
+
+          <div class="input-group">
+            <label>كلمة السر:</label>
+            <input
+              type="password"
+              name="password"
+              required
+              placeholder="اختر كلمة سر قوية لحماية خدمتك"
+            />
+          </div>
+
+          <button type="submit" class="btn-primary">نشر الخدمة الآن</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <h3>سهّلها</h3>
+        <p>دليلك الأول للوصول للخدمات في غزة.. من قلب الصعاب نبتكر الحلول.</p>
+        <ul class="footer-links">
+          <li><a href="search-service.html">الرئيسية</a></li>
+          <li><a href="about.html">عن الموقع</a></li>
+          <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy; 2026 منصة سهّلها - صُنع بكل فخر في غزة 🇵🇸
+      </div>
+    </footer>
+  </body>
+</html>
